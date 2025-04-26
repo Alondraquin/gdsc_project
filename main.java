@@ -10,15 +10,15 @@ public class main{
         printBoard(board);
         Scanner scanner = new Scanner(System.in);
         playerTurns(board, scanner);
-
+        int play;
         Random rand = new Random();
         while(true){
-            int play = rand.nextInt(9) + 1;
+            play = rand.nextInt(9) + 1;
             if(isValidMove(board, play)) {
                 break;
             }
         }
-        
+        placeMove( board, Integer.toString(play), 'O');
         
 
 
@@ -28,6 +28,41 @@ public class main{
 
 
     }
+    private static void placeMove(char[][] board, String position, char symbol){
+        switch(position) {
+            case "1":
+                board[][] = symbol;
+                break;
+            case "2":
+                board[][] = symbol;
+                break;
+            case "3":
+                board[][] = symbol;
+                break;
+            case "4":
+                board[][] = symbol;
+                break;
+            case "5":
+                board[][] = symbol;
+                break;
+            case "6":
+                board[][] = symbol;
+                break;
+            case "7":
+                board[][] = symbol;
+                break;
+            case "8":
+                board[][] = symbol;
+                break;
+            case "9":
+                board[][] = symbol;
+                break;
+            default;
+                System.out.println("not a valid input");    
+        }
+        printBoard(board);        
+    } 
+
     private static boolean isSpaceAvailable(char[][] board, int position){
        switch(position) {
             case 1:
@@ -88,41 +123,14 @@ public class main{
                 return false;   
         }
     }
-    public static void playerTurns(char[][] board, Scanner scanner){
+    public static void playerTurns(char[][] board){
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("where would you like to play? (1-9)");
         String userInput = scanner.nextLine();
-        switch(userInput) {
-            case "1":
-                board[][] = 'X';
-                break;
-            case "2":
-                board[][] = 'X';
-                break;
-            case "3":
-                board[][] = 'X';
-                break;
-            case "4":
-                board[][] = 'X';
-                break;
-            case "5":
-                board[][] = 'X';
-                break;
-            case "6":
-                board[][] = 'X';
-                break;
-            case "7":
-                board[][] = 'X';
-                break;
-            case "8":
-                board[][] = 'X';
-                break;
-            case "9":
-                board[][] = 'X';
-                break;
-            default;
-                System.out.println("not a valid input");    
-        }
-        printBoard(board);
+       
+        placeMove(board, userInput, 'X');
+        scanner.close();
     }
 
     public static void printBoard(char[][] board){
